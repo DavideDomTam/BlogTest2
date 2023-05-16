@@ -1,28 +1,10 @@
 <?php
 // Connessione al database
 
-require_once("key.php");
-require 'aws/vendor/autoload.php';
-use Aws\DynamoDb\DynamoDbClient;
-use Aws\Exception\AwsException;
-$credentials = new Aws\Credentials\Credentials($key, $secretKey);
-//Crea un client per DynamoDb
-$s3 = new Aws\DynamoDb\DynamoDbClient([
-'version' => 'latest', 'region' => 'eu-west-3',
-'credentials' => $credentials ]);
 
 
-$table = 'Esempio';
-$ciao=array(
-    'Utente-Autore' => array('S'=>'Homer'),
-    'Titolo' => array('S'=>'Ciao'),
-    'contenuto' => array('S'=>'Hello world'),
-    'date' => array('S'=>'2023-05-15, 12:09')
-    );
 
-$rs = $s3->putItem(array(
-        'TableName' => $table,
-        'Item' => $ciao));
+
 
 
 function leggi($da, $quanti = NULL) {
